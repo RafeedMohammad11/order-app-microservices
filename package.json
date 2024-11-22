@@ -20,9 +20,13 @@
     "test:e2e": "jest --config ./apps/ordering-app/test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "^9.0.0",
+    "@nestjs/common": "^9.4.3",
+    "@nestjs/config": "^3.3.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/mongoose": "^10.1.0",
     "@nestjs/platform-express": "^9.0.0",
+    "joi": "^17.13.3",
+    "mongoose": "^8.8.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
   },
@@ -66,7 +70,11 @@
     "coverageDirectory": "./coverage",
     "testEnvironment": "node",
     "roots": [
-      "<rootDir>/apps/"
-    ]
+      "<rootDir>/apps/",
+      "<rootDir>/libs/"
+    ],
+    "moduleNameMapper": {
+      "^@app/common(|/.*)$": "<rootDir>/libs/common/src/$1"
+    }
   }
 }
